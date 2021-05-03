@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enigma Machine V0.1.0</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;0,900;1,300&display=swap');
+        header {
+            text-align: center;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        footer {
+            text-align: center;
+            font-weight: lighter;
+        }
+        h1 {
+            font-weight: 700;
+            padding: unset;
+        }
+        h2 {
+            font-weight: 600;
+        }
+    </style>
+    <script src="enigma.js"></script>
+</head>
+<body>
+<header>
+    <h1>Enigma Machine</h1>
+    <h2>Built by <a href="https://devaidan.com/" target="_blank">Aidan Raney</a></h2>
+</header>
+<main>
+    <div id="row1">
+        <button class="button" id="q">Q</button>
+        <button class="button" id="w">W</button>
+        <button class="button" id="e">E</button>
+        <button class="button" id="r">R</button>
+        <button class="button" id="t">T</button>
+        <button class="button" id="z">Z</button>
+        <button class="button" id="u">U</button>
+        <button class="button" id="i">I</button>
+        <button class="button" id="o">O</button>
+    </div>
+    <div id="row2">
+        <button class="button" id="a">A</button>
+        <button class="button" id="s">S</button>
+        <button class="button" id="d">D</button>
+        <button class="button" id="f">F</button>
+        <button class="button" id="g">G</button>
+        <button class="button" id="h">H</button>
+        <button class="button" id="j">J</button>
+        <button class="button" id="k">K</button>
+    </div>
+    <div id="row3">
+        <button class="button" id="p">P</button>
+        <button class="button" id="y">Y</button>
+        <button class="button" id="x">X</button>
+        <button class="button" id="c">C</button>
+        <button class="button" id="v">V</button>
+        <button class="button" id="b">B</button>
+        <button class="button" id="n">N</button>
+        <button class="button" id="m">M</button>
+        <button class="button" id="l">L</button>
+    </div>
+    <p><b>Your input so far:</b></p>
+    <p id="inputPreview"></p>
+</main>
+<footer><small>Version 0.1.0<br>Developed by <a href="https://devaidan.com/" target="_blank">DevAidan</a></small></footer>
+
+</body>
+</html>
