@@ -1,16 +1,39 @@
-var enigma = {
-    numRoters: 0,
-    encrypt: function(){
+var slider = document.getElementById("slider");
+var output = document.getElementById("sliderOutput");
+output.innerHTML = slider.value; // Display the default slider value
+slider.oninput = function() {
+    enigma.numRotations = parseInt(this.value);
+    output.innerHTML = this.value;
+    document.getElementById("output").innerText = "";
+}
 
+var enigma = {
+    numRotations: parseInt(slider.value),
+    encrypt: function(){
+        var input = this.id;
+        var output;
+        if((input.charCodeAt(0) + enigma.numRotations) <= 122 ){
+            output = String.fromCharCode(input.charCodeAt(0) + enigma.numRotations);
+            console.log(0)
+        } else {
+            output = String.fromCharCode(((input.charCodeAt(0) + enigma.numRotations) - 122) + 96);
+            console.log(input.charCodeAt(0) + enigma.numRotations)
+            console.log(1)
+        }
+        console.log(output.charCodeAt(0));
+        console.log(input.charCodeAt(0));
+        console.log(this.id)
+        document.getElementById("output").innerText += output;
     },
     init: function(){
-        var buttons = document.body.querySelectorAll('.button');
+        var buttons = document.querySelectorAll('.button');
         for(var i = 0; i < buttons.length; i++){
-            buttons[i].addEventListener('onclick', enigma.encrypt(buttons[i].id))
+            buttons[i].addEventListener("click", enigma.encrypt);
         }
     }
 }
-enigma.init();
+
+
 /*
 int numRoters;
 max num of rotations is equal to 26 (aka num of chars)

@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Enigma Machine V0.1.0</title>
+    <title>Enigma Machine V0.2.0</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;0,900;1,300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
         header {
             text-align: center;
         }
@@ -15,58 +15,120 @@
             text-align: center;
             font-weight: lighter;
         }
+        #changelog {
+            display: inline;
+        }
         h1 {
-            font-weight: 700;
+            font-weight: 900;
             padding: unset;
         }
         h2 {
-            font-weight: 600;
+            font-weight: 700;
+        }
+        #sliderOutput {
+            display: inline-block;
+        }
+        #slider {
+            margin-bottom: 30px;
+            display: block;
+        }
+        .hline {
+            width: 80%;
+            height: 2px;
+            background: black;
+            margin: 20px 10%;
+        }
+        #content {
+            align-items: center;
+            justify-content: space-around;
+            align-content: space-between;
+            display: flex;
+        }
+        #outputArea {
+            width: 80%;
+            margin: 0 12%;
+        }
+        #output {
+            display: inline;
+            padding-left: 5px;
+        }
+        #outputLabel {
+            display: inline;
         }
     </style>
-    <script src="enigma.js"></script>
 </head>
-<body>
+<body onload="enigma.init();">
 <header>
     <h1>Enigma Machine</h1>
     <h2>Built by <a href="https://devaidan.com/" target="_blank">Aidan Raney</a></h2>
 </header>
 <main>
-    <div id="row1">
-        <button class="button" id="q">Q</button>
-        <button class="button" id="w">W</button>
-        <button class="button" id="e">E</button>
-        <button class="button" id="r">R</button>
-        <button class="button" id="t">T</button>
-        <button class="button" id="z">Z</button>
-        <button class="button" id="u">U</button>
-        <button class="button" id="i">I</button>
-        <button class="button" id="o">O</button>
+    <div class="hline"></div>
+    <div id="content">
+        <div id="changelog">
+            <h2>Changelog</h2>
+            <h3>V0.2.0</h3>
+            <ul>
+                <li>Enigma object literal created</li>
+                <li>Init function created</li>
+                <li>For loop made to add event listeners to all the buttons</li>
+                <li>Encrypt functionality added with charCodes</li>
+                <li>Rotation slider added</li>
+                <li>Code to update number of rotations from slider added</li>
+                <li>Changelog added</li>
+                <li>Improved styling, added flex box</li>
+            </ul>
+            <h3>V0.1.0</h3>
+            <ul>
+                <li>Letter buttons added</li>
+                <li>Header, footer, and main added</li>
+                <li>Some basic css added</li>
+            </ul>
+        </div>
+        <div id="inputArea">
+            <p style="display: inline;"><b>Number of Rotations: </b></p><p id="sliderOutput">0</p>
+            <input type="range" min="0" max="24" value="1" id="slider">
+            <div id="row1">
+                <button class="button" id="q">Q</button>
+                <button class="button" id="w">W</button>
+                <button class="button" id="e">E</button>
+                <button class="button" id="r">R</button>
+                <button class="button" id="t">T</button>
+                <button class="button" id="z">Z</button>
+                <button class="button" id="u">U</button>
+                <button class="button" id="i">I</button>
+                <button class="button" id="o">O</button>
+            </div>
+            <div id="row2">
+                <button class="button" id="a">A</button>
+                <button class="button" id="s">S</button>
+                <button class="button" id="d">D</button>
+                <button class="button" id="f">F</button>
+                <button class="button" id="g">G</button>
+                <button class="button" id="h">H</button>
+                <button class="button" id="j">J</button>
+                <button class="button" id="k">K</button>
+            </div>
+            <div id="row3">
+                <button class="button" id="p">P</button>
+                <button class="button" id="y">Y</button>
+                <button class="button" id="x">X</button>
+                <button class="button" id="c">C</button>
+                <button class="button" id="v">V</button>
+                <button class="button" id="b">B</button>
+                <button class="button" id="n">N</button>
+                <button class="button" id="m">M</button>
+                <button class="button" id="l">L</button>
+            </div>
+        </div>
     </div>
-    <div id="row2">
-        <button class="button" id="a">A</button>
-        <button class="button" id="s">S</button>
-        <button class="button" id="d">D</button>
-        <button class="button" id="f">F</button>
-        <button class="button" id="g">G</button>
-        <button class="button" id="h">H</button>
-        <button class="button" id="j">J</button>
-        <button class="button" id="k">K</button>
+    <div class="hline"></div>
+    <div id="outputArea">
+        <p id="outputLabel"><b>Encoded Text:</b></p>
+        <p id="output">_</p>
     </div>
-    <div id="row3">
-        <button class="button" id="p">P</button>
-        <button class="button" id="y">Y</button>
-        <button class="button" id="x">X</button>
-        <button class="button" id="c">C</button>
-        <button class="button" id="v">V</button>
-        <button class="button" id="b">B</button>
-        <button class="button" id="n">N</button>
-        <button class="button" id="m">M</button>
-        <button class="button" id="l">L</button>
-    </div>
-    <p><b>Your input so far:</b></p>
-    <p id="inputPreview"></p>
 </main>
 <footer><small>Version 0.1.0<br>Developed by <a href="https://devaidan.com/" target="_blank">DevAidan</a></small></footer>
-
+<script src="enigma.js"></script>
 </body>
 </html>
