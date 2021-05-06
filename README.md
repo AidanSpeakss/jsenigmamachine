@@ -1,6 +1,6 @@
-# [WIP] jsenigmamachine
+# jsenigmamachine
 https://aidanspeakss.github.io/jsenigmamachine/  
-A working enigma machine encyptor and decrypter built in JS.
+A work in progress, enigma machine encyptor and decrypter built in JS.
 
 
 # Changelog  
