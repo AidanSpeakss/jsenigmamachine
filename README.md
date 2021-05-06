@@ -6,7 +6,7 @@ A working enigma machine encyptor and decrypter built in JS.
 
 # Changelog
 **V0.2.0**
-    - Enigma object literal created
+    - Enigma object literal created  
     - Init function created
     - For loop made to add event listeners to all the buttons
     - Encrypt functionality added with charCodes
