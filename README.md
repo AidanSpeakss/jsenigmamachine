@@ -10,7 +10,8 @@ A work in progress, enigma machine encyptor and decrypter built in JS.
    - Added horizontal dividers and borders around different areas
    - Improved layout and spacing
    - Improved mobile responsive design
-   - Other minor design changes
+   - Other minor design changes  
+  
 **V0.2.0**  
     - Enigma object literal created  
     - Init function created  
