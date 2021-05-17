@@ -1,14 +1,6 @@
 # jsenigmamachine
 https://aidanspeakss.github.io/jsenigmamachine/  
 A work in progress, enigma machine encyptor and decrypter built in JS.  
-  
-# To-do 
-- Add 2 more rotars
-- Implement ability for user to set the amount of rotars they want
-- Add history/about section for the enigma machine
-- Add technical accuracy section explaining how the code is accurate to how the original enigma machines worked
-- Add section about Alan Turing
-- Add SEO/meta tags and try to get this on Google search results
 
 # Changelog  
 **V1.0.0**
@@ -34,3 +26,11 @@ A work in progress, enigma machine encyptor and decrypter built in JS.
     - Header, footer, and main added  
     - Some basic css added  
 
+  
+# To-do 
+- Add 2 more rotars
+- Implement ability for user to set the amount of rotars they want
+- Add history/about section for the enigma machine
+- Add technical accuracy section explaining how the code is accurate to how the original enigma machines worked
+- Add section about Alan Turing
+- Add SEO/meta tags and try to get this on Google search results
