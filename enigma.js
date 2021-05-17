@@ -14,22 +14,43 @@ var enigma = {
         var output;
         if((input.charCodeAt(0) + enigma.numRotations) <= 122 ){
             output = String.fromCharCode(input.charCodeAt(0) + enigma.numRotations);
-            console.log(0)
         } else {
-            output = String.fromCharCode(((input.charCodeAt(0) + enigma.numRotations) - 122) + 96);
-            console.log(input.charCodeAt(0) + enigma.numRotations)
-            console.log(1)
+            output = String.fromCharCode((input.charCodeAt(0) + enigma.numRotations) - 26);
         }
-        console.log(output.charCodeAt(0));
-        console.log(input.charCodeAt(0));
-        console.log(this.id)
-        document.getElementById("output").innerText += output;
+        if(document.getElementById("output").innerText == "..."){
+            document.getElementById("output").innerText = output;
+        } else {
+            document.getElementById("output").innerText += output;
+        }
+    },
+    decrypt: function(){
+        document.querySelector("#decode").innerHTML = "";
+        var input = document.querySelector("#decodeText").value.split("");
+        var output;
+        for(var i = 0; i < input.length; i++){
+            if(input[i].charCodeAt(0) > 122 || input[i].charCodeAt(0) < 96){
+                alert("You can only decode text that is made up of characters on the keyboard above.")
+            } else {
+                if((input[i].charCodeAt(0) - enigma.numRotations) <= 122 && (input[i].charCodeAt(0) - enigma.numRotations) > 96){
+                    console.log(input[i].charCodeAt(0));
+                    output = String.fromCharCode(input[i].charCodeAt(0) - enigma.numRotations);
+                    console.log(output)
+                } else if((input[i].charCodeAt(0) - enigma.numRotations) < 97){
+                    console.log(input[i].charCodeAt(0));
+                    output = String.fromCharCode((input[i].charCodeAt(0) - enigma.numRotations) + 26);
+                    console.log(output)
+                }
+                console.log(document.querySelector("#decodeText").innerHTML)
+                document.querySelector("#decode").innerHTML += output;
+            }
+        }
     },
     init: function(){
         var buttons = document.querySelectorAll('.button');
         for(var i = 0; i < buttons.length; i++){
             buttons[i].addEventListener("click", enigma.encrypt);
         }
+        document.querySelector("#decodeBtn").addEventListener("click", enigma.decrypt)
     }
 }
 

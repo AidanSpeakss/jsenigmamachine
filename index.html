@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Enigma Machine V0.2.0</title>
+    <title>Enigma Machine V1.0.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
         header {
@@ -14,6 +16,10 @@
         footer {
             text-align: center;
             font-weight: lighter;
+        }
+        button {
+            font-size: 1.1em;
+            font-weight: bold;
         }
         #changelog {
             display: inline;
@@ -29,7 +35,6 @@
             display: inline-block;
         }
         #slider {
-            margin-bottom: 30px;
             display: block;
         }
         .hline {
@@ -38,22 +43,95 @@
             background: black;
             margin: 20px 10%;
         }
-        #content {
-            align-items: center;
-            justify-content: space-around;
-            align-content: space-between;
+        .innerHline {
+            width: 100%;
+            height: 2px;
+            background: black;
+            padding: 0 5%;
+            margin: 20px -5%;
+        }
+        #decodeSubArea {
             display: flex;
+            justify-content: space-evenly;
+        }
+        #decode {
+            border: gray 1px solid;
+            padding: 5px;
+        }
+
+        @media(max-width: 359px) {
+            body {
+                font-size: 13px;
+            }
+
+            #content {
+                align-items: center;
+                justify-content: space-around;
+                align-content: space-between;
+                display: flex;
+                flex-direction: column;
+            }
+            .media {
+                display: block;
+            }
+        }
+        @media(min-width: 360px) and (max-width: 1000px) {
+            body {
+                font-size: 15px;
+            }
+            #content {
+                align-items: center;
+                justify-content: space-around;
+                align-content: space-between;
+                display: flex;
+                flex-direction: column;
+            }
+            .media {
+                display: block;
+            }
+        }
+        @media(min-width: 1001px) {
+            body {
+                font-size: 16px;
+            }
+            #content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                align-content: space-between;
+                display: flex;
+            }
+            .media {
+                display: none;
+            }
         }
         #outputArea {
-            width: 80%;
-            margin: 0 12%;
+            margin: 5% 0;
         }
         #output {
-            display: inline;
-            padding-left: 5px;
+            border: gray 1px solid;
+            padding: 5px;
         }
         #outputLabel {
             display: inline;
+        }
+
+        #rotationArea {
+            border: gray 1px solid;
+            padding: 5px;
+        }
+        #rotationArea > p {
+            text-align: center;
+            width: 100%;
+        }
+        #slider {
+            margin: auto;
+        }
+        input[type=range]::-webkit-slider-runnable-track, input[type=range]::-moz-range-track, input[type=range]::-ms-fill-lower, input[type=range]::-ms-fill-upper {
+            -webkit-appearance: none;  /* Override default CSS styles */
+            appearance: none;
+            background: none;
+            outline: 1px solid #000000;
         }
     </style>
 </head>
@@ -67,6 +145,16 @@
     <div id="content">
         <div id="changelog">
             <h2>Changelog</h2>
+            <h3>V1.0.0</h3>
+            <ul>
+                <li>Decrypt section added</li>
+                <li>Decryption capabilities added</li>
+                <li>Rearranged rotation section and encoding section</li>
+                <li>Added horizontal dividers and borders around different areas</li>
+                <li>Improved layout and spacing</li>
+                <li>Improved mobile responsive design</li>
+                <li>Other minor design changes</li>
+            </ul>
             <h3>V0.2.0</h3>
             <ul>
                 <li>Enigma object literal created</li>
@@ -85,9 +173,13 @@
                 <li>Some basic css added</li>
             </ul>
         </div>
+        <div class="hline media "></div>
         <div id="inputArea">
-            <p style="display: inline;"><b>Number of Rotations: </b></p><p id="sliderOutput">0</p>
-            <input type="range" min="0" max="24" value="1" id="slider">
+            <div id="rotationArea">
+                <p><b>Number of Rotations: </b></p><p id="sliderOutput">0</p>
+                <input type="range" min="0" max="24" value="1" id="slider">
+            </div>
+            <div class="innerHline"></div>
             <div id="row1">
                 <button class="button" id="q">Q</button>
                 <button class="button" id="w">W</button>
@@ -120,15 +212,25 @@
                 <button class="button" id="m">M</button>
                 <button class="button" id="l">L</button>
             </div>
+            <div class="innerHline"></div>
+            <div id="outputArea">
+                <p id="outputLabel"><b>Encoded Text:</b></p>
+                <p id="output">...</p>
+            </div>
+            <div class="innerHline"></div>
+            <div id="decodeArea">
+                <div id="decodeSubArea">
+                    <button id="decodeBtn">Decode</button>
+                    <textarea id="decodeText" placeholder="Put text here to decode"></textarea>
+                </div>
+                <p id="decodeLabel"><b>Decoded Text:</b></p>
+                <p id="decode">...</p>
+            </div>
         </div>
     </div>
     <div class="hline"></div>
-    <div id="outputArea">
-        <p id="outputLabel"><b>Encoded Text:</b></p>
-        <p id="output">_</p>
-    </div>
 </main>
-<footer><small>Version 0.1.0<br>Developed by <a href="https://devaidan.com/" target="_blank">DevAidan</a></small></footer>
+<footer><small>Version 1.0.0<br>Developed by <a href="https://devaidan.com/" target="_blank">DevAidan</a></small></footer>
 <script src="enigma.js"></script>
 </body>
 </html>
