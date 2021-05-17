@@ -1,6 +1,7 @@
 # jsenigmamachine
 https://aidanspeakss.github.io/jsenigmamachine/  
-A work in progress, enigma machine encyptor and decrypter built in JS.
+A work in progress, enigma machine encyptor and decrypter built in JS.  
+  
 *To-do*  
 - Add 2 more rotars
 - Implement ability for user to set the amount of rotars they want
